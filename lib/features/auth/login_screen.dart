@@ -22,12 +22,15 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+     
       appBar: AppBar(
-        leading: const BackButton(color: Colors.black),
+        automaticallyImplyLeading: false,
+        // leading: const BackButton(color: Colors.black),
         title: const Text("SmartServe", style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold)),
         backgroundColor: Colors.transparent,
         elevation: 0,
         centerTitle: true,
+
       ),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(24.0),
