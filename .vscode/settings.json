@@ -1,3 +1,4 @@
 {
-    "cmake.sourceDirectory": "C:/PROJECT 3.0/smart_serve/linux"
+    "cmake.sourceDirectory": "C:/PROJECT 3.0/smart_serve/linux",
+    "java.configuration.updateBuildConfiguration": "automatic"
 }
