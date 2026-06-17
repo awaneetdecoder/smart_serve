@@ -6,13 +6,13 @@
 ![JWT](https://img.shields.io/badge/JWT-Auth-orange?style=flat-square)
 ![License](https://img.shields.io/badge/License-MIT-green?style=flat-square)
 
-> The Flutter mobile frontend for **SmartServe** — a digital queue management system. Students join queues digitally and admins manage them in real time. Replaces physical token systems with a clean mobile experience.
+> Flutter frontend for **SmartServe** — a digital queue management system. Students join queues from their phone and see a live wait-time estimate; admins manage the queue in real time. Built to replace physical token systems.
 
 **Backend Repo:** [smartserve-backend](https://github.com/awaneetdecoder/smartserve-backend)
 
 ---
 
-## 📱 App Flow
+## App Flow
 
 ```
 Splash Screen
@@ -23,24 +23,21 @@ Role Selection  →  Student  →  Login/Register  →  User Dashboard
 
 ---
 
-## ✨ Features
+## Features
 
 ### Student
-- 🎫 Generate queue token for any department
-- ⏱️ View real-time estimated wait time
-- ❌ Cancel token anytime
-- 🔄 Auto-login on app restart (JWT saved to device)
+- Generate a queue token for any department
+- See a live wait-time estimate, calculated backend-side from each department's average serving time — not a static number
+- Cancel a token anytime
+- Auto-login on app restart (JWT persisted on device)
 
 ### Admin
-- 📊 View all active tokens in real time
-- ▶️ Serve next customer
-- ⏭️ Skip token
-- ⏸️ Hold token
-- ✅ Mark as done
+- View all active tokens in real time
+- Serve next, skip, hold, or mark a token as done
 
 ---
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 | Package | Version | Purpose |
 |---|---|---|
@@ -51,7 +48,7 @@ Role Selection  →  Student  →  Login/Register  →  User Dashboard
 
 ---
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 lib/
@@ -87,7 +84,7 @@ lib/
 
 ---
 
-## 🚀 Getting Started
+## Getting Started
 
 ### Prerequisites
 - [Flutter SDK 3.x](https://flutter.dev/docs/get-started/install)
@@ -97,14 +94,9 @@ lib/
 ### Installation
 
 ```bash
-# Clone the repo
-git clone https://github.com/awaneetdecoder/smartserve-flutter.git
-cd smartserve-flutter
-
-# Install dependencies
+git clone https://github.com/awaneetdecoder/smart_serve.git
+cd smart_serve
 flutter pub get
-
-# Run the app
 flutter run
 ```
 
@@ -120,11 +112,11 @@ static const String baseUrl = 'http://10.0.2.2:8080';
 // static const String baseUrl = 'http://192.168.1.X:8080';
 ```
 
-> **Note:** Make sure the backend is running before starting the app.
+> Make sure the backend is running before starting the app.
 
 ---
 
-## 🔐 JWT Authentication Flow
+## JWT Authentication Flow
 
 ```
 LOGIN
@@ -136,7 +128,7 @@ LOGIN
 APP RESTART
   Flutter reads JWT from SharedPreferences
   Restores token to Dio headers automatically
-  User stays logged in ✅
+  User stays logged in
 
 LOGOUT
   JWT removed from Dio headers
@@ -146,13 +138,12 @@ LOGOUT
 
 ---
 
-## 🏗️ Architecture
+## Architecture
 
 ```
 Screen → Provider → Service → ApiService (Dio) → Spring Boot Backend
 ```
 
-Each layer has one job:
 - **Screen** — displays UI, reads from Provider
 - **Provider** — manages state, calls Service
 - **Service** — business logic per domain (auth, queue)
@@ -160,12 +151,28 @@ Each layer has one job:
 
 ---
 
-## 👨‍💻 Author
+## Honest current limitations
+
+- Tested manually on emulator and a physical device during development — not yet used by real students or admins in a live department.
+- No automated widget/integration tests yet.
+- Not published to Play Store / App Store — run via `flutter run` for now.
+
+---
+
+## Roadmap
+
+- [ ] Push notifications when token is about to be served
+- [ ] Automated widget tests
+- [ ] Play Store release build
+
+---
+
+## Author
 
 **Awaneet Mishra** — [@awaneetdecoder](https://github.com/awaneetdecoder)
 
 ---
 
-## 📄 License
+## License
 
 MIT License
